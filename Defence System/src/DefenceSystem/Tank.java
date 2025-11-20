@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package DefenceSystem;
 
 
@@ -9,7 +5,7 @@ package DefenceSystem;
  *
  * @author Shameel Shajaad
  */
-public class Tank extends javax.swing.JFrame implements DefenceSystemObservableInterface{
+public class Tank extends javax.swing.JFrame implements DefenceSystemObserver{
 
     /**
      * Creates new form Helicopter
@@ -217,11 +213,7 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObservableI
 
     @Override
     public void areaClearLabel(boolean clear) {
-        if(clear){
-            jLabelAreaCleared.setText("Area Cleared");
-        }else{
-            jLabelAreaCleared.setText("Area Not Cleared");
-        }
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
@@ -229,8 +221,4 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObservableI
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
-    public void setPosition(int position) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }
