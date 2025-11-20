@@ -4,8 +4,6 @@
  */
 package DefenceSystem;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
 
 /**
  *
@@ -19,9 +17,6 @@ public class MainController extends javax.swing.JFrame {
     public MainController() {
         initComponents();
         
-        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-        
-        this.setSize(screen.width / 2, screen.height / 2);
         this.setLocation(0, 0);
     }
 
@@ -55,6 +50,8 @@ public class MainController extends javax.swing.JFrame {
 
         jCheckBoxAreaClear.setText("Area Clear");
 
+        jTextFieldTextArea.setEditable(false);
+        jTextFieldTextArea.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jScrollPaneTextArea.setViewportView(jTextFieldTextArea);
 
         jLabelSoldierCount.setText("Soldier Count");
@@ -94,15 +91,15 @@ public class MainController extends javax.swing.JFrame {
                             .addComponent(jLabelFuelAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelAmmoCount, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSliderPosition, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))
+                            .addComponent(jSliderPosition, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPaneTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18))))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTextFieldTextMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldTextMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonSend, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonSend, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(

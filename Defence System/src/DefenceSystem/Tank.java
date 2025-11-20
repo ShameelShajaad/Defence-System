@@ -9,12 +9,12 @@ package DefenceSystem;
  *
  * @author Shameel Shajaad
  */
-public class Helicopter extends javax.swing.JFrame {
+public class Tank extends javax.swing.JFrame {
 
     /**
      * Creates new form Helicopter
      */
-    public Helicopter() {
+    public Tank() {
         initComponents();
         
         this.setLocationRelativeTo(null);
@@ -43,6 +43,7 @@ public class Helicopter extends javax.swing.JFrame {
         jLabelSoldierCount = new javax.swing.JLabel();
         jLabelAmmoCount = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
+        jButtonLaserOperation1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,6 +73,13 @@ public class Helicopter extends javax.swing.JFrame {
             }
         });
 
+        jButtonLaserOperation1.setText("Rotate Shooting");
+        jButtonLaserOperation1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLaserOperation1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,19 +89,22 @@ public class Helicopter extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButtonLaserOperation, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jButtonLaserOperation, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonLaserOperation1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButtonShoot, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonSendASoldier, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 98, Short.MAX_VALUE)
+                        .addGap(98, 98, 98)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(82, 82, 82))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelAmmoCount, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelAmmoCount, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jSpinnerAmmoCount, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(12, 12, 12))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -135,7 +146,8 @@ public class Helicopter extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButtonLaserOperation)
-                            .addComponent(jCheckBox1))
+                            .addComponent(jCheckBox1)
+                            .addComponent(jButtonLaserOperation1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPaneTextArea)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -152,6 +164,10 @@ public class Helicopter extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
+    private void jButtonLaserOperation1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLaserOperation1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonLaserOperation1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -160,6 +176,7 @@ public class Helicopter extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonLaserOperation;
+    private javax.swing.JButton jButtonLaserOperation1;
     private javax.swing.JButton jButtonSendASoldier;
     private javax.swing.JButton jButtonShoot;
     private javax.swing.JCheckBox jCheckBox1;
