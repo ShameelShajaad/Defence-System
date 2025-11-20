@@ -57,10 +57,13 @@ public class Tank extends javax.swing.JFrame {
         jButton1.setText("SEND");
 
         jButtonSendASoldier.setText("Send a Soldier");
+        jButtonSendASoldier.setEnabled(false);
 
         jButtonShoot.setText("Shoot");
+        jButtonShoot.setEnabled(false);
 
         jButtonLaserOperation.setText("Laser Operation");
+        jButtonLaserOperation.setEnabled(false);
 
         jLabelSoldierCount.setText("Soldier Count");
 
@@ -74,6 +77,7 @@ public class Tank extends javax.swing.JFrame {
         });
 
         jButtonRotateShooting.setText("Rotate Shooting");
+        jButtonRotateShooting.setEnabled(false);
         jButtonRotateShooting.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRotateShootingActionPerformed(evt);

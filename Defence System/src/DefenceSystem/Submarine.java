@@ -66,10 +66,13 @@ public class Submarine extends javax.swing.JFrame {
         jButton1.setText("SEND");
 
         jButtonSonarOperation.setText("Sonar Operation");
+        jButtonSonarOperation.setEnabled(false);
 
         jButtonShoot.setText("Shoot");
+        jButtonShoot.setEnabled(false);
 
         jButtonTomahawkMissile.setText("Tomahawk Missile");
+        jButtonTomahawkMissile.setEnabled(false);
 
         jLabelSoldierCount.setText("Soldier Count");
 
@@ -83,6 +86,7 @@ public class Submarine extends javax.swing.JFrame {
         });
 
         jButtonTrident2Missile.setText("Trident-2 Missile");
+        jButtonTrident2Missile.setEnabled(false);
         jButtonTrident2Missile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonTrident2MissileActionPerformed(evt);

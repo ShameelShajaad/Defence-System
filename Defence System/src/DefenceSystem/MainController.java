@@ -10,13 +10,15 @@ package DefenceSystem;
  * @author Shameel Shajaad
  */
 public class MainController extends javax.swing.JFrame {
+    private final DefenceSystemObservableInterface defenceSystemObservableInterface;
 
     /**
      * Creates new form MainController
      */
-    public MainController() {
+    public MainController(DefenceSystemObservableInterface defenceSystemObservableInterface) {
         initComponents();
-        
+        this.defenceSystemObservableInterface=defenceSystemObservableInterface;
+        setTitle("Main Controller");
         this.setLocation(0, 0);
     }
 
@@ -49,6 +51,11 @@ public class MainController extends javax.swing.JFrame {
         jButtonCollectInformations.setText("Collect Informations");
 
         jCheckBoxAreaClear.setText("Area Clear");
+        jCheckBoxAreaClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxAreaClearActionPerformed(evt);
+            }
+        });
 
         jTextFieldTextArea.setEditable(false);
         jTextFieldTextArea.setHorizontalAlignment(javax.swing.JTextField.LEFT);
@@ -62,6 +69,7 @@ public class MainController extends javax.swing.JFrame {
 
         jLabelPosition.setText("Position");
 
+        jSliderPosition.setMajorTickSpacing(20);
         jSliderPosition.setValue(0);
 
         jButtonSend.setText("SEND");
@@ -138,6 +146,10 @@ public class MainController extends javax.swing.JFrame {
     private void jButtonSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonSendActionPerformed
+
+    private void jCheckBoxAreaClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxAreaClearActionPerformed
+        defenceSystemObservableInterface.areaClearLabel(jCheckBoxAreaClear.isSelected());
+    }//GEN-LAST:event_jCheckBoxAreaClearActionPerformed
 
     
 

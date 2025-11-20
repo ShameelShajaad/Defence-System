@@ -1,13 +1,41 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package DefenceSystem;
+
+import java.util.ArrayList;
+import java.util.Observer;
 
 /**
  *
  * @author Shameel Shajaad
  */
-public class DefenceSystemObservable {
+public class DefenceSystemObservable implements DefenceSystemObservableInterface{
+    int position;
+    
+    private ArrayList<DefenceSystemObserver>ObserverList=new ArrayList<>();
+    
+    public void addDefenceSystemObserver(DefenceSystemObserver defenceSystemObserver){
+        ObserverList.add(defenceSystemObserver);
+    }
+    
+    @Override
+    public void getMsgMain(String Msg) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void update(int position) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void areaClearLabel(boolean clear) {
+        for (DefenceSystemObserver defenceSystemObserver : ObserverList) {
+            defenceSystemObserver.areaClearLabel(clear);
+        }
+    }
+
+    @Override
+    public void updateButtons() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }

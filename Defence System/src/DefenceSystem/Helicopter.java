@@ -9,15 +9,17 @@ package DefenceSystem;
  *
  * @author Shameel Shajaad
  */
-public class Helicopter extends javax.swing.JFrame {
+public class Helicopter extends javax.swing.JFrame implements DefenceSystemObserver{
+    private int position;
 
     /**
      * Creates new form Helicopter
      */
     public Helicopter() {
         initComponents();
-        
+        setTitle("Helicopter");
         this.setLocationRelativeTo(null);
+        setVisible(true);
     }
 
     /**
@@ -56,10 +58,13 @@ public class Helicopter extends javax.swing.JFrame {
         jButton1.setText("SEND");
 
         jButtonSendASoldier.setText("Send a Soldier");
+        jButtonSendASoldier.setEnabled(false);
 
         jButtonShoot.setText("Shoot");
+        jButtonShoot.setEnabled(false);
 
         jButtonLaserOperation.setText("Laser Operation");
+        jButtonLaserOperation.setEnabled(false);
 
         jLabelSoldierCount.setText("Soldier Count");
 
@@ -173,4 +178,28 @@ public class Helicopter extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldMessageArea;
     private javax.swing.JTextField jTextFieldTextMessage;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void getMsgMain(String Msg) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void update(int position) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void areaClearLabel(boolean clear) {
+        if(clear){
+            jLabelAreaCleared.setText("Area Cleared");
+        }else{
+            jLabelAreaCleared.setText("Area Not Cleared");
+        }
+    }
+
+    @Override
+    public void updateButtons() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
