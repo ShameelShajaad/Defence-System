@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package DefenceSystem;
 
 /**
@@ -9,5 +5,8 @@ package DefenceSystem;
  * @author Shameel Shajaad
  */
 public class Main {
-    
+
+    public static void main(String[] args) {
+        
+    }
 }

@@ -4,6 +4,9 @@
  */
 package DefenceSystem;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 /**
  *
  * @author Shameel Shajaad
@@ -15,6 +18,11 @@ public class MainController extends javax.swing.JFrame {
      */
     public MainController() {
         initComponents();
+        
+        Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+        
+        this.setSize(screen.width / 2, screen.height / 2);
+        this.setLocation(0, 0);
     }
 
     /**
@@ -32,11 +40,11 @@ public class MainController extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 480, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 270, Short.MAX_VALUE)
         );
 
         pack();
