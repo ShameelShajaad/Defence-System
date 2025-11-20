@@ -10,5 +10,6 @@ public class Main {
         new MainController().setVisible(true);
         new Helicopter().setVisible(true);
         new Tank().setVisible(true);
+        new Submarine().setVisible(true);
     }
 }
