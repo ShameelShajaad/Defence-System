@@ -9,12 +9,12 @@ package DefenceSystem;
  *
  * @author Shameel Shajaad
  */
-public class Tank extends javax.swing.JFrame {
+public class Submarine extends javax.swing.JFrame {
 
     /**
      * Creates new form Helicopter
      */
-    public Tank() {
+    public Submarine() {
         initComponents();
         
         this.setLocationRelativeTo(null);
