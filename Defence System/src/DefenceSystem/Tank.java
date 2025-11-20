@@ -5,7 +5,7 @@ package DefenceSystem;
  * @author Shameel Shajaad
  */
 public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
-
+    
     private int position;
 
     /**
@@ -185,7 +185,7 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
     }//GEN-LAST:event_jButtonRotateShootingActionPerformed
 
     private void jButtonSendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendButtonActionPerformed
-        String message="Tank: "+jTextFieldTextMessage.getText();
+        String message = "Tank: " + jTextFieldTextMessage.getText();
         MainController.setDefenceMessage(message);
     }//GEN-LAST:event_jButtonSendButtonActionPerformed
 
@@ -218,16 +218,16 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
             doc.insertString(doc.getLength(), "Main Controller: " + Msg + "\n", null);
             jTextAreaMessageArea.setCaretPosition(doc.getLength());
         } catch (javax.swing.text.BadLocationException e) {
-
+            
         }
     }
-
+    
     @Override
     public void update(int position) {
         this.position = position;
         updateButtons();
     }
-
+    
     @Override
     public void areaClearLabel(boolean clear) {
         if (clear) {
@@ -236,18 +236,20 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
             jLabelAreaCleared.setText("Area Not Cleared");
         }
     }
-
+    
     @Override
     public void updateButtons() {
         if (jCheckBoxPosition.isSelected()) {
             jButtonShoot.setEnabled(position >= 20);
             jButtonSendASoldier.setEnabled(position >= 40);
             jButtonLaserOperation.setEnabled(position >= 60);
+            jButtonRotateShooting.setEnabled(position >= 80);
         } else {
             jButtonShoot.setEnabled(false);
             jButtonSendASoldier.setEnabled(false);
             jButtonLaserOperation.setEnabled(false);
+            jButtonRotateShooting.setEnabled(false);
         }
     }
-
+    
 }

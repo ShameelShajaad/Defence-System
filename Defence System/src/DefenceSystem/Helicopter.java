@@ -168,7 +168,7 @@ public class Helicopter extends javax.swing.JFrame implements DefenceSystemObser
     }//GEN-LAST:event_jCheckBoxPositionActionPerformed
 
     private void jButtonSendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendButtonActionPerformed
-        String message ="Helicopter: "+jTextFieldTextMessage.getText();
+        String message = "Helicopter: " + jTextFieldTextMessage.getText();
         MainController.setDefenceMessage(message);
     }//GEN-LAST:event_jButtonSendButtonActionPerformed
 
@@ -195,12 +195,12 @@ public class Helicopter extends javax.swing.JFrame implements DefenceSystemObser
 
     @Override
     public void getMsgMain(String Msg) {
-        try{
+        try {
             javax.swing.text.Document doc = jTextAreaMessageArea.getDocument();
-            doc.insertString(doc.getLength(), "Main Controller: "+Msg+"\n", null);
+            doc.insertString(doc.getLength(), "Main Controller: " + Msg + "\n", null);
             jTextAreaMessageArea.setCaretPosition(doc.getLength());
-        }catch(javax.swing.text.BadLocationException e){
-            
+        } catch (javax.swing.text.BadLocationException e) {
+
         }
     }
 
@@ -222,10 +222,10 @@ public class Helicopter extends javax.swing.JFrame implements DefenceSystemObser
     @Override
     public void updateButtons() {
         if (jCheckBoxPosition.isSelected()) {
-            jButtonShoot.setEnabled(position>=20);
-            jButtonSendASoldier.setEnabled(position>=40);
-            jButtonLaserOperation.setEnabled(position>=60);
-        }else{
+            jButtonShoot.setEnabled(position >= 20);
+            jButtonSendASoldier.setEnabled(position >= 40);
+            jButtonLaserOperation.setEnabled(position >= 60);
+        } else {
             jButtonShoot.setEnabled(false);
             jButtonSendASoldier.setEnabled(false);
             jButtonLaserOperation.setEnabled(false);

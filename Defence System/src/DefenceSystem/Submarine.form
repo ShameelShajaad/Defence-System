@@ -28,7 +28,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jButton1" min="-2" pref="89" max="-2" attributes="0"/>
+                          <Component id="jButtonSendButton" min="-2" pref="89" max="-2" attributes="0"/>
                           <Component id="jScrollPaneTextArea" min="-2" pref="474" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
@@ -66,7 +66,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jSpinnerSoldierCount" min="-2" pref="75" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jCheckBox1" min="-2" pref="74" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxPosition" min="-2" pref="74" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="jTextFieldTextMessage" alignment="0" min="-2" pref="383" max="-2" attributes="0"/>
@@ -116,7 +116,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jButtonTomahawkMissile" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jCheckBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxPosition" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jButtonTrident2Missile" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -124,7 +124,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jTextFieldTextMessage" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButtonSendButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="jSliderEnergy" max="32767" attributes="0"/>
@@ -176,10 +176,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldTextMessageActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="jButtonSendButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="SEND"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSendButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonSonarOperation">
       <Properties>
@@ -213,12 +216,12 @@
         <Property name="text" type="java.lang.String" value="Ammo Count"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxPosition">
       <Properties>
         <Property name="text" type="java.lang.String" value="Position"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxPositionActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonTrident2Missile">
