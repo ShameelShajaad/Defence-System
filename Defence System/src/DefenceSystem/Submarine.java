@@ -4,20 +4,20 @@
  */
 package DefenceSystem;
 
-
 /**
  *
  * @author Shameel Shajaad
  */
-public class Submarine extends javax.swing.JFrame implements DefenceSystemObserver{
+public class Submarine extends javax.swing.JFrame implements DefenceSystemObserver {
 
     /**
      * Creates new form Helicopter
      */
     public Submarine() {
         initComponents();
-        
-        this.setLocationRelativeTo(null);
+        setTitle("Submarine");
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
 
     /**
@@ -222,7 +222,6 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -257,7 +256,11 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
 
     @Override
     public void areaClearLabel(boolean clear) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (clear) {
+            jLabelAreaCleared.setText("Area Cleared");
+        } else {
+            jLabelAreaCleared.setText("Area Not Cleared");
+        }
     }
 
     @Override

@@ -1,11 +1,12 @@
 package DefenceSystem;
 
-
 /**
  *
  * @author Shameel Shajaad
  */
-public class Tank extends javax.swing.JFrame implements DefenceSystemObserver{
+public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
+
+    private int position;
 
     /**
      * Creates new form Helicopter
@@ -31,7 +32,7 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver{
         jScrollPaneTextArea = new javax.swing.JScrollPane();
         jTextAreaMessageArea = new javax.swing.JTextArea();
         jTextFieldTextMessage = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jButtonSendButton = new javax.swing.JButton();
         jButtonSendASoldier = new javax.swing.JButton();
         jButtonShoot = new javax.swing.JButton();
         jButtonLaserOperation = new javax.swing.JButton();
@@ -39,7 +40,7 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver{
         jSpinnerAmmoCount = new javax.swing.JSpinner();
         jLabelSoldierCount = new javax.swing.JLabel();
         jLabelAmmoCount = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBoxPosition = new javax.swing.JCheckBox();
         jButtonRotateShooting = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,7 +61,12 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver{
         jTextAreaMessageArea.setRows(5);
         jScrollPaneTextArea.setViewportView(jTextAreaMessageArea);
 
-        jButton1.setText("SEND");
+        jButtonSendButton.setText("SEND");
+        jButtonSendButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSendButtonActionPerformed(evt);
+            }
+        });
 
         jButtonSendASoldier.setText("Send a Soldier");
         jButtonSendASoldier.setEnabled(false);
@@ -75,10 +81,10 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver{
 
         jLabelAmmoCount.setText("Ammo Count");
 
-        jCheckBox1.setText("Position");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        jCheckBoxPosition.setText("Position");
+        jCheckBoxPosition.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                jCheckBoxPositionActionPerformed(evt);
             }
         });
 
@@ -110,7 +116,7 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver{
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 72, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jCheckBoxPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabelAmmoCount, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -130,7 +136,7 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver{
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jTextFieldTextMessage)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1)))
+                                .addComponent(jButtonSendButton)))
                         .addGap(12, 12, 12)))
                 .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -156,40 +162,44 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver{
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButtonLaserOperation)
-                            .addComponent(jCheckBox1)
+                            .addComponent(jCheckBoxPosition)
                             .addComponent(jButtonRotateShooting))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPaneTextArea)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldTextMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1))))
+                            .addComponent(jButtonSendButton))))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void jCheckBoxPositionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxPositionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_jCheckBoxPositionActionPerformed
 
     private void jButtonRotateShootingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRotateShootingActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonRotateShootingActionPerformed
 
+    private void jButtonSendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendButtonActionPerformed
+        String message="Tank: "+jTextFieldTextMessage.getText();
+        MainController.setDefenceMessage(message);
+    }//GEN-LAST:event_jButtonSendButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonLaserOperation;
     private javax.swing.JButton jButtonRotateShooting;
     private javax.swing.JButton jButtonSendASoldier;
+    private javax.swing.JButton jButtonSendButton;
     private javax.swing.JButton jButtonShoot;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBoxPosition;
     private javax.swing.JLabel jLabelAmmoCount;
     private javax.swing.JLabel jLabelAreaCleared;
     private javax.swing.JLabel jLabelSoldierCount;
@@ -203,22 +213,41 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver{
 
     @Override
     public void getMsgMain(String Msg) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            javax.swing.text.Document doc = jTextAreaMessageArea.getDocument();
+            doc.insertString(doc.getLength(), "Main Controller: " + Msg + "\n", null);
+            jTextAreaMessageArea.setCaretPosition(doc.getLength());
+        } catch (javax.swing.text.BadLocationException e) {
+
+        }
     }
 
     @Override
     public void update(int position) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.position = position;
+        updateButtons();
     }
 
     @Override
     public void areaClearLabel(boolean clear) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (clear) {
+            jLabelAreaCleared.setText("Area Cleared");
+        } else {
+            jLabelAreaCleared.setText("Area Not Cleared");
+        }
     }
 
     @Override
     public void updateButtons() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (jCheckBoxPosition.isSelected()) {
+            jButtonShoot.setEnabled(position >= 20);
+            jButtonSendASoldier.setEnabled(position >= 40);
+            jButtonLaserOperation.setEnabled(position >= 60);
+        } else {
+            jButtonShoot.setEnabled(false);
+            jButtonSendASoldier.setEnabled(false);
+            jButtonLaserOperation.setEnabled(false);
+        }
     }
 
 }
