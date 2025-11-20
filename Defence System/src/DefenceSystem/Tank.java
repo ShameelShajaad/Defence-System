@@ -9,15 +9,16 @@ package DefenceSystem;
  *
  * @author Shameel Shajaad
  */
-public class Tank extends javax.swing.JFrame {
+public class Tank extends javax.swing.JFrame implements DefenceSystemObservableInterface{
 
     /**
      * Creates new form Helicopter
      */
     public Tank() {
         initComponents();
-        
-        this.setLocationRelativeTo(null);
+        setTitle("Tank");
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
 
     /**
@@ -203,4 +204,33 @@ public class Tank extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextAreaMessageArea;
     private javax.swing.JTextField jTextFieldTextMessage;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void getMsgMain(String Msg) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void update(int position) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void areaClearLabel(boolean clear) {
+        if(clear){
+            jLabelAreaCleared.setText("Area Cleared");
+        }else{
+            jLabelAreaCleared.setText("Area Not Cleared");
+        }
+    }
+
+    @Override
+    public void updateButtons() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void setPosition(int position) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
