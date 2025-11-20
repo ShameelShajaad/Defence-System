@@ -32,7 +32,7 @@ public class Submarine extends javax.swing.JFrame {
         jLabelAreaCleared = new javax.swing.JLabel();
         jSliderOxygen = new javax.swing.JSlider();
         jScrollPaneTextArea = new javax.swing.JScrollPane();
-        jTextFieldMessageArea = new javax.swing.JTextField();
+        jTextAreaMessageArea = new javax.swing.JTextArea();
         jTextFieldTextMessage = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButtonSonarOperation = new javax.swing.JButton();
@@ -60,7 +60,11 @@ public class Submarine extends javax.swing.JFrame {
         jSliderOxygen.setSnapToTicks(true);
         jSliderOxygen.setValue(100);
 
-        jScrollPaneTextArea.setViewportView(jTextFieldMessageArea);
+        jTextAreaMessageArea.setEditable(false);
+        jTextAreaMessageArea.setColumns(20);
+        jTextAreaMessageArea.setLineWrap(true);
+        jTextAreaMessageArea.setRows(5);
+        jScrollPaneTextArea.setViewportView(jTextAreaMessageArea);
 
         jTextFieldTextMessage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -236,7 +240,7 @@ public class Submarine extends javax.swing.JFrame {
     private javax.swing.JSlider jSliderOxygen;
     private javax.swing.JSpinner jSpinnerAmmoCount;
     private javax.swing.JSpinner jSpinnerSoldierCount;
-    private javax.swing.JTextField jTextFieldMessageArea;
+    private javax.swing.JTextArea jTextAreaMessageArea;
     private javax.swing.JTextField jTextFieldTextMessage;
     // End of variables declaration//GEN-END:variables
 }

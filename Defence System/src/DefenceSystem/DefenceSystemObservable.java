@@ -18,7 +18,9 @@ public class DefenceSystemObservable implements DefenceSystemObservableInterface
 
     @Override
     public void getMsgMain(String Msg) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        for (DefenceSystemObserver defenceSystemObserver : ObserverList) {
+            defenceSystemObserver.getMsgMain(Msg);
+        }
     }
 
     @Override

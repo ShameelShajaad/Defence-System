@@ -34,9 +34,9 @@ public class Helicopter extends javax.swing.JFrame implements DefenceSystemObser
         jLabelAreaCleared = new javax.swing.JLabel();
         jSlider1 = new javax.swing.JSlider();
         jScrollPaneTextArea = new javax.swing.JScrollPane();
-        jTextFieldMessageArea = new javax.swing.JTextField();
+        jTextAreaMessageArea = new javax.swing.JTextArea();
         jTextFieldTextMessage = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jButtonSendButton = new javax.swing.JButton();
         jButtonSendASoldier = new javax.swing.JButton();
         jButtonShoot = new javax.swing.JButton();
         jButtonLaserOperation = new javax.swing.JButton();
@@ -58,9 +58,18 @@ public class Helicopter extends javax.swing.JFrame implements DefenceSystemObser
         jSlider1.setSnapToTicks(true);
         jSlider1.setValue(100);
 
-        jScrollPaneTextArea.setViewportView(jTextFieldMessageArea);
+        jTextAreaMessageArea.setEditable(false);
+        jTextAreaMessageArea.setColumns(20);
+        jTextAreaMessageArea.setLineWrap(true);
+        jTextAreaMessageArea.setRows(5);
+        jScrollPaneTextArea.setViewportView(jTextAreaMessageArea);
 
-        jButton1.setText("SEND");
+        jButtonSendButton.setText("SEND");
+        jButtonSendButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSendButtonActionPerformed(evt);
+            }
+        });
 
         jButtonSendASoldier.setText("Send a Soldier");
         jButtonSendASoldier.setEnabled(false);
@@ -119,7 +128,7 @@ public class Helicopter extends javax.swing.JFrame implements DefenceSystemObser
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jTextFieldTextMessage)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1)))
+                                .addComponent(jButtonSendButton)))
                         .addGap(12, 12, 12)))
                 .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -151,7 +160,7 @@ public class Helicopter extends javax.swing.JFrame implements DefenceSystemObser
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldTextMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1))))
+                            .addComponent(jButtonSendButton))))
                 .addContainerGap())
         );
 
@@ -162,14 +171,19 @@ public class Helicopter extends javax.swing.JFrame implements DefenceSystemObser
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBoxPositionActionPerformed
 
+    private void jButtonSendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendButtonActionPerformed
+        String message ="Helicopter: "+jTextFieldTextMessage.getText();
+        MainController.setDefenceMessage(message);
+    }//GEN-LAST:event_jButtonSendButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonLaserOperation;
     private javax.swing.JButton jButtonSendASoldier;
+    private javax.swing.JButton jButtonSendButton;
     private javax.swing.JButton jButtonShoot;
     private javax.swing.JCheckBox jCheckBoxPosition;
     private javax.swing.JLabel jLabelAmmoCount;
@@ -179,13 +193,19 @@ public class Helicopter extends javax.swing.JFrame implements DefenceSystemObser
     private javax.swing.JSlider jSlider1;
     private javax.swing.JSpinner jSpinnerAmmoCount;
     private javax.swing.JSpinner jSpinnerSoldierCount;
-    private javax.swing.JTextField jTextFieldMessageArea;
+    private javax.swing.JTextArea jTextAreaMessageArea;
     private javax.swing.JTextField jTextFieldTextMessage;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void getMsgMain(String Msg) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try{
+            javax.swing.text.Document doc = jTextAreaMessageArea.getDocument();
+            doc.insertString(doc.getLength(), "Main Controller: "+Msg+"\n", null);
+            jTextAreaMessageArea.setCaretPosition(doc.getLength());
+        }catch(javax.swing.text.BadLocationException e){
+            
+        }
     }
 
     @Override

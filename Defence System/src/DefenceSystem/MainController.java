@@ -4,12 +4,12 @@
  */
 package DefenceSystem;
 
-
 /**
  *
  * @author Shameel Shajaad
  */
 public class MainController extends javax.swing.JFrame {
+
     private final DefenceSystemObservableInterface defenceSystemObservableInterface;
 
     /**
@@ -17,7 +17,7 @@ public class MainController extends javax.swing.JFrame {
      */
     public MainController(DefenceSystemObservableInterface defenceSystemObservableInterface) {
         initComponents();
-        this.defenceSystemObservableInterface=defenceSystemObservableInterface;
+        this.defenceSystemObservableInterface = defenceSystemObservableInterface;
         setTitle("Main Controller");
         this.setLocation(0, 0);
     }
@@ -35,7 +35,7 @@ public class MainController extends javax.swing.JFrame {
         jButtonCollectInformations = new javax.swing.JButton();
         jCheckBoxAreaClear = new javax.swing.JCheckBox();
         jScrollPaneTextArea = new javax.swing.JScrollPane();
-        jTextFieldTextArea = new javax.swing.JTextField();
+        jTextAreaTextAreaMain = new javax.swing.JTextArea();
         jLabelSoldierCount = new javax.swing.JLabel();
         jLabelFuelAmount = new javax.swing.JLabel();
         jLabelAmmoCount = new javax.swing.JLabel();
@@ -57,9 +57,11 @@ public class MainController extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldTextArea.setEditable(false);
-        jTextFieldTextArea.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        jScrollPaneTextArea.setViewportView(jTextFieldTextArea);
+        jTextAreaTextAreaMain.setEditable(false);
+        jTextAreaTextAreaMain.setColumns(20);
+        jTextAreaTextAreaMain.setLineWrap(true);
+        jTextAreaTextAreaMain.setRows(5);
+        jScrollPaneTextArea.setViewportView(jTextAreaTextAreaMain);
 
         jLabelSoldierCount.setText("Soldier Count");
 
@@ -152,7 +154,11 @@ public class MainController extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendActionPerformed
-        // TODO add your handling code here:
+        String message = jTextFieldTextMessage.getText();
+
+        if (!message.isEmpty()) {
+            defenceSystemObservableInterface.getMsgMain(message);
+        }
     }//GEN-LAST:event_jButtonSendActionPerformed
 
     private void jCheckBoxAreaClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxAreaClearActionPerformed
@@ -160,11 +166,24 @@ public class MainController extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBoxAreaClearActionPerformed
 
     private void jSliderPositionStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderPositionStateChanged
-        int position=jSliderPosition.getValue();
+        int position = jSliderPosition.getValue();
         defenceSystemObservableInterface.setPosition(position);
     }//GEN-LAST:event_jSliderPositionStateChanged
 
-    
+    public void updateInbox() {
+        jTextAreaTextAreaMain.setText(" ");
+    }
+
+    public static void setDefenceMessage(String msg) {
+        try {
+            javax.swing.text.Document doc = jTextAreaTextAreaMain.getDocument();
+            doc.insertString(doc.getLength(), msg + "\n", null);
+            jTextAreaTextAreaMain.setCaretPosition(doc.getLength());
+        } catch (javax.swing.text.BadLocationException e) {
+
+        }
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCollectInformations;
@@ -177,7 +196,7 @@ public class MainController extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelSoldierCount;
     private javax.swing.JScrollPane jScrollPaneTextArea;
     private javax.swing.JSlider jSliderPosition;
-    private javax.swing.JTextField jTextFieldTextArea;
+    public static javax.swing.JTextArea jTextAreaTextAreaMain;
     private javax.swing.JTextField jTextFieldTextMessage;
     // End of variables declaration//GEN-END:variables
 }

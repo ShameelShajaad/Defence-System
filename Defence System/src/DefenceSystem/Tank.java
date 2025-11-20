@@ -32,7 +32,7 @@ public class Tank extends javax.swing.JFrame {
         jLabelAreaCleared = new javax.swing.JLabel();
         jSlider1 = new javax.swing.JSlider();
         jScrollPaneTextArea = new javax.swing.JScrollPane();
-        jTextFieldMessageArea = new javax.swing.JTextField();
+        jTextAreaMessageArea = new javax.swing.JTextArea();
         jTextFieldTextMessage = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButtonSendASoldier = new javax.swing.JButton();
@@ -57,7 +57,11 @@ public class Tank extends javax.swing.JFrame {
         jSlider1.setSnapToTicks(true);
         jSlider1.setValue(100);
 
-        jScrollPaneTextArea.setViewportView(jTextFieldMessageArea);
+        jTextAreaMessageArea.setEditable(false);
+        jTextAreaMessageArea.setColumns(20);
+        jTextAreaMessageArea.setLineWrap(true);
+        jTextAreaMessageArea.setRows(5);
+        jScrollPaneTextArea.setViewportView(jTextAreaMessageArea);
 
         jButton1.setText("SEND");
 
@@ -196,7 +200,7 @@ public class Tank extends javax.swing.JFrame {
     private javax.swing.JSlider jSlider1;
     private javax.swing.JSpinner jSpinnerAmmoCount;
     private javax.swing.JSpinner jSpinnerSoldierCount;
-    private javax.swing.JTextField jTextFieldMessageArea;
+    private javax.swing.JTextArea jTextAreaMessageArea;
     private javax.swing.JTextField jTextFieldTextMessage;
     // End of variables declaration//GEN-END:variables
 }
