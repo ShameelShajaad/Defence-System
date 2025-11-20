@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package DefenceSystem;
 
 /**
@@ -9,5 +5,12 @@ package DefenceSystem;
  * @author Shameel Shajaad
  */
 public interface DefenceSystemObserver {
-    
+
+    public void getMsgMain(String Msg);
+
+    public void update(int position);
+
+    public void areaClearLabel(boolean clear);
+
+    public void updateButtons();
 }
