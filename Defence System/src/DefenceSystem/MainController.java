@@ -70,7 +70,15 @@ public class MainController extends javax.swing.JFrame {
         jLabelPosition.setText("Position");
 
         jSliderPosition.setMajorTickSpacing(20);
-        jSliderPosition.setValue(0);
+        jSliderPosition.setMinorTickSpacing(10);
+        jSliderPosition.setPaintLabels(true);
+        jSliderPosition.setPaintTicks(true);
+        jSliderPosition.setSnapToTicks(true);
+        jSliderPosition.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSliderPositionStateChanged(evt);
+            }
+        });
 
         jButtonSend.setText("SEND");
         jButtonSend.addActionListener(new java.awt.event.ActionListener() {
@@ -137,7 +145,7 @@ public class MainController extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldTextMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonSend))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -150,6 +158,11 @@ public class MainController extends javax.swing.JFrame {
     private void jCheckBoxAreaClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxAreaClearActionPerformed
         defenceSystemObservableInterface.areaClearLabel(jCheckBoxAreaClear.isSelected());
     }//GEN-LAST:event_jCheckBoxAreaClearActionPerformed
+
+    private void jSliderPositionStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderPositionStateChanged
+        int position=jSliderPosition.getValue();
+        defenceSystemObservableInterface.setPosition(position);
+    }//GEN-LAST:event_jSliderPositionStateChanged
 
     
 

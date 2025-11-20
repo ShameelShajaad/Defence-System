@@ -1,21 +1,21 @@
 package DefenceSystem;
 
 import java.util.ArrayList;
-import java.util.Observer;
 
 /**
  *
  * @author Shameel Shajaad
  */
-public class DefenceSystemObservable implements DefenceSystemObservableInterface{
+public class DefenceSystemObservable implements DefenceSystemObservableInterface {
+
     int position;
-    
-    private ArrayList<DefenceSystemObserver>ObserverList=new ArrayList<>();
-    
-    public void addDefenceSystemObserver(DefenceSystemObserver defenceSystemObserver){
+
+    private ArrayList<DefenceSystemObserver> ObserverList = new ArrayList<>();
+
+    public void addDefenceSystemObserver(DefenceSystemObserver defenceSystemObserver) {
         ObserverList.add(defenceSystemObserver);
     }
-    
+
     @Override
     public void getMsgMain(String Msg) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -37,5 +37,20 @@ public class DefenceSystemObservable implements DefenceSystemObservableInterface
     public void updateButtons() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
+    @Override
+    public void setPosition(int position) {
+        if (this.position != position) {
+            this.position = position;
+            notifyDefence();
+        }
+    }
+
+    public void notifyDefence() {
+        for (DefenceSystemObserver defenceSystemObserver : ObserverList) {
+            defenceSystemObserver.update(position);
+            updateButtons();
+        }
+    }
+
 }

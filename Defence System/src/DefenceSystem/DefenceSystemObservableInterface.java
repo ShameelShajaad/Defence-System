@@ -13,4 +13,6 @@ public interface DefenceSystemObservableInterface {
     public void areaClearLabel(boolean clear);
 
     public void updateButtons();
+    
+    public void setPosition(int position);
 }

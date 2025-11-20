@@ -89,7 +89,7 @@
                   <Component id="jTextFieldTextMessage" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonSend" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="18" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -158,8 +158,14 @@
     <Component class="javax.swing.JSlider" name="jSliderPosition">
       <Properties>
         <Property name="majorTickSpacing" type="int" value="20"/>
-        <Property name="value" type="int" value="0"/>
+        <Property name="minorTickSpacing" type="int" value="10"/>
+        <Property name="paintLabels" type="boolean" value="true"/>
+        <Property name="paintTicks" type="boolean" value="true"/>
+        <Property name="snapToTicks" type="boolean" value="true"/>
       </Properties>
+      <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jSliderPositionStateChanged"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldTextMessage">
     </Component>

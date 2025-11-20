@@ -52,7 +52,12 @@ public class Submarine extends javax.swing.JFrame {
 
         jLabelAreaCleared.setText("Area Not Cleared");
 
+        jSliderOxygen.setMajorTickSpacing(20);
+        jSliderOxygen.setMinorTickSpacing(10);
         jSliderOxygen.setOrientation(javax.swing.JSlider.VERTICAL);
+        jSliderOxygen.setPaintLabels(true);
+        jSliderOxygen.setPaintTicks(true);
+        jSliderOxygen.setSnapToTicks(true);
         jSliderOxygen.setValue(100);
 
         jScrollPaneTextArea.setViewportView(jTextFieldMessageArea);
@@ -93,7 +98,12 @@ public class Submarine extends javax.swing.JFrame {
             }
         });
 
+        jSliderEnergy.setMajorTickSpacing(20);
+        jSliderEnergy.setMinorTickSpacing(10);
         jSliderEnergy.setOrientation(javax.swing.JSlider.VERTICAL);
+        jSliderEnergy.setPaintLabels(true);
+        jSliderEnergy.setPaintTicks(true);
+        jSliderEnergy.setSnapToTicks(true);
         jSliderEnergy.setValue(100);
 
         jLabelOxygen.setText("Oxygen");
@@ -142,17 +152,13 @@ public class Submarine extends javax.swing.JFrame {
                             .addComponent(jTextFieldTextMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jSliderEnergy, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(jSliderOxygen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabelEnergy, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelOxygen)
-                        .addContainerGap())))
+                    .addComponent(jSliderEnergy, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelEnergy, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelOxygen)
+                    .addComponent(jSliderOxygen, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

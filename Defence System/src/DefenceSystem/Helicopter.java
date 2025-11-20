@@ -4,12 +4,12 @@
  */
 package DefenceSystem;
 
-
 /**
  *
  * @author Shameel Shajaad
  */
-public class Helicopter extends javax.swing.JFrame implements DefenceSystemObserver{
+public class Helicopter extends javax.swing.JFrame implements DefenceSystemObserver {
+
     private int position;
 
     /**
@@ -44,13 +44,18 @@ public class Helicopter extends javax.swing.JFrame implements DefenceSystemObser
         jSpinnerAmmoCount = new javax.swing.JSpinner();
         jLabelSoldierCount = new javax.swing.JLabel();
         jLabelAmmoCount = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBoxPosition = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabelAreaCleared.setText("Area Not Cleared");
 
+        jSlider1.setMajorTickSpacing(20);
+        jSlider1.setMinorTickSpacing(10);
         jSlider1.setOrientation(javax.swing.JSlider.VERTICAL);
+        jSlider1.setPaintLabels(true);
+        jSlider1.setPaintTicks(true);
+        jSlider1.setSnapToTicks(true);
         jSlider1.setValue(100);
 
         jScrollPaneTextArea.setViewportView(jTextFieldMessageArea);
@@ -70,10 +75,10 @@ public class Helicopter extends javax.swing.JFrame implements DefenceSystemObser
 
         jLabelAmmoCount.setText("Ammo Count");
 
-        jCheckBox1.setText("Position");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        jCheckBoxPosition.setText("Position");
+        jCheckBoxPosition.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                jCheckBoxPositionActionPerformed(evt);
             }
         });
 
@@ -91,17 +96,17 @@ public class Helicopter extends javax.swing.JFrame implements DefenceSystemObser
                                 .addComponent(jButtonShoot, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonSendASoldier, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 98, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 72, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(82, 82, 82))
+                                .addComponent(jCheckBoxPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabelAmmoCount, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jSpinnerAmmoCount, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(12, 12, 12))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
@@ -115,9 +120,9 @@ public class Helicopter extends javax.swing.JFrame implements DefenceSystemObser
                                 .addComponent(jTextFieldTextMessage)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton1)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                        .addGap(12, 12, 12)))
+                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,7 +145,7 @@ public class Helicopter extends javax.swing.JFrame implements DefenceSystemObser
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButtonLaserOperation)
-                            .addComponent(jCheckBox1))
+                            .addComponent(jCheckBoxPosition))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPaneTextArea)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -153,21 +158,20 @@ public class Helicopter extends javax.swing.JFrame implements DefenceSystemObser
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void jCheckBoxPositionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxPositionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_jCheckBoxPositionActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonLaserOperation;
     private javax.swing.JButton jButtonSendASoldier;
     private javax.swing.JButton jButtonShoot;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBoxPosition;
     private javax.swing.JLabel jLabelAmmoCount;
     private javax.swing.JLabel jLabelAreaCleared;
     private javax.swing.JLabel jLabelSoldierCount;
@@ -186,20 +190,29 @@ public class Helicopter extends javax.swing.JFrame implements DefenceSystemObser
 
     @Override
     public void update(int position) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.position = position;
+        updateButtons();
     }
 
     @Override
     public void areaClearLabel(boolean clear) {
-        if(clear){
+        if (clear) {
             jLabelAreaCleared.setText("Area Cleared");
-        }else{
+        } else {
             jLabelAreaCleared.setText("Area Not Cleared");
         }
     }
 
     @Override
     public void updateButtons() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (jCheckBoxPosition.isSelected()) {
+            jButtonShoot.setEnabled(position>=20);
+            jButtonSendASoldier.setEnabled(position>=40);
+            jButtonLaserOperation.setEnabled(position>=60);
+        }else{
+            jButtonShoot.setEnabled(false);
+            jButtonSendASoldier.setEnabled(false);
+            jButtonLaserOperation.setEnabled(false);
+        }
     }
 }
