@@ -86,7 +86,6 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
         jSliderFuel.setOrientation(javax.swing.JSlider.VERTICAL);
         jSliderFuel.setPaintLabels(true);
         jSliderFuel.setPaintTicks(true);
-        jSliderFuel.setSnapToTicks(true);
         jSliderFuel.setValue(100);
 
         jTextAreaMessageArea.setEditable(false);
