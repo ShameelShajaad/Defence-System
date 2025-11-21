@@ -118,7 +118,7 @@ git clone https://github.com/ShameelShajaad/Defence-System.git
 ### 📸 Screenshots / Demo
 
 - **Main Controller Window**  
-  ![Main Controller](Defence-System/screenshots/MainController.png)
+  ![Main Controller](Defence System/screenshots/MainController.png)
 
 - **Helicopter Unit Window**  
   ![Helicopter](Defence-System/screenshots/Helicopter.png)
