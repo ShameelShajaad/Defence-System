@@ -5,7 +5,7 @@ package DefenceSystem;
  * @author Shameel Shajaad
  */
 public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
-    
+
     private int position;
 
     /**
@@ -16,7 +16,7 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
         setTitle("Tank");
         this.setLocationRelativeTo(null);
         setVisible(true);
-        
+
         jSpinnerSoldierCount.setValue(100);
         jSpinnerAmmoCount.setValue(500);
     }
@@ -189,7 +189,7 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
 
     private void jButtonSendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendButtonActionPerformed
         String message = "Tank: " + jTextFieldTextMessage.getText();
-        jTextAreaMessageArea.append(message+"\n");
+        jTextAreaMessageArea.append(message + "\n");
         MainController.setDefenceMessage(message);
     }//GEN-LAST:event_jButtonSendButtonActionPerformed
 
@@ -222,16 +222,16 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
             doc.insertString(doc.getLength(), "Main Controller: " + Msg + "\n", null);
             jTextAreaMessageArea.setCaretPosition(doc.getLength());
         } catch (javax.swing.text.BadLocationException e) {
-            
+
         }
     }
-    
+
     @Override
     public void update(int position) {
         this.position = position;
         updateButtons();
     }
-    
+
     @Override
     public void areaClearLabel(boolean clear) {
         if (clear) {
@@ -240,7 +240,7 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
             jLabelAreaCleared.setText("Area Not Cleared");
         }
     }
-    
+
     @Override
     public void updateButtons() {
         if (jCheckBoxPosition.isSelected()) {
@@ -258,7 +258,18 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
 
     @Override
     public String getSoldierCount(int index) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (index == 2) {
+            return String.valueOf(jSpinnerSoldierCount.getValue());
+        }
+        return null;
     }
-    
+
+    @Override
+    public String getAmmoCount(int index) {
+        if (index == 2) {
+            return String.valueOf(jSpinnerSoldierCount.getValue());
+        }
+        return null;
+    }
+
 }
