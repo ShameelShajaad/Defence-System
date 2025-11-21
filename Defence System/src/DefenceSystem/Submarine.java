@@ -137,12 +137,27 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
 
         jButtonSonarOperation.setText("Sonar Operation");
         jButtonSonarOperation.setEnabled(false);
+        jButtonSonarOperation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSonarOperationActionPerformed(evt);
+            }
+        });
 
         jButtonShoot.setText("Shoot");
         jButtonShoot.setEnabled(false);
+        jButtonShoot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonShootActionPerformed(evt);
+            }
+        });
 
         jButtonTomahawkMissile.setText("Tomahawk Missile");
         jButtonTomahawkMissile.setEnabled(false);
+        jButtonTomahawkMissile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTomahawkMissileActionPerformed(evt);
+            }
+        });
 
         jLabelSoldierCount.setText("Soldier Count");
 
@@ -277,7 +292,12 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
     }//GEN-LAST:event_jCheckBoxPositionActionPerformed
 
     private void jButtonTrident2MissileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTrident2MissileActionPerformed
-        // TODO add your handling code here:
+        int ammoCount = (int) jSpinnerAmmoCount.getValue();
+        if (ammoCount >= 70) {
+            jSpinnerAmmoCount.setValue(ammoCount - 70);
+        } else {
+            JOptionPane.showMessageDialog(this, "No ammos left!");
+        }
     }//GEN-LAST:event_jButtonTrident2MissileActionPerformed
 
     private void jTextFieldTextMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTextMessageActionPerformed
@@ -293,6 +313,33 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
     private void jSliderOxygenComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jSliderOxygenComponentShown
 
     }//GEN-LAST:event_jSliderOxygenComponentShown
+
+    private void jButtonShootActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonShootActionPerformed
+        int ammoCount = (int) jSpinnerAmmoCount.getValue();
+        if (ammoCount >= 5) {
+            jSpinnerAmmoCount.setValue(ammoCount - 5);
+        } else {
+            JOptionPane.showMessageDialog(this, "No ammos left!");
+        }
+    }//GEN-LAST:event_jButtonShootActionPerformed
+
+    private void jButtonSonarOperationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSonarOperationActionPerformed
+        int soldierCount = (int) jSpinnerSoldierCount.getValue();
+        if (soldierCount >= 5) {
+            jSpinnerSoldierCount.setValue(soldierCount - 5);
+        } else {
+            JOptionPane.showMessageDialog(this, "No soldiers left!");
+        }
+    }//GEN-LAST:event_jButtonSonarOperationActionPerformed
+
+    private void jButtonTomahawkMissileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTomahawkMissileActionPerformed
+        int ammoCount = (int) jSpinnerAmmoCount.getValue();
+        if (ammoCount >= 30) {
+            jSpinnerAmmoCount.setValue(ammoCount - 30);
+        } else {
+            JOptionPane.showMessageDialog(this, "No ammos left!");
+        }
+    }//GEN-LAST:event_jButtonTomahawkMissileActionPerformed
 
     /**
      * @param args the command line arguments
