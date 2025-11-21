@@ -314,4 +314,9 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
             jButtonTrident2Missile.setEnabled(false);
         }
     }
+
+    @Override
+    public String getSoldierCount(int index) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

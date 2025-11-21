@@ -255,5 +255,10 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
             jButtonRotateShooting.setEnabled(false);
         }
     }
+
+    @Override
+    public String getSoldierCount(int index) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }

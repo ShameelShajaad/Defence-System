@@ -209,8 +209,13 @@ public class MainController extends javax.swing.JFrame {
     private void jComboBoxSelectDefenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSelectDefenceActionPerformed
         int index=jComboBoxSelectDefence.getSelectedIndex();
         
+        if(index==0){
+            jLabelValueSoldierCount.setText(" ");
+            jLabelValueFuelAmount.setText(" ");
+            jLabelValueAmmoCount.setText(" ");
+        }
         if(index==1){
-            
+            jLabelValueSoldierCount.setText(defenceSystemObservableInterface.getSoldierCount(index));
         }
     }//GEN-LAST:event_jComboBoxSelectDefenceActionPerformed
 
