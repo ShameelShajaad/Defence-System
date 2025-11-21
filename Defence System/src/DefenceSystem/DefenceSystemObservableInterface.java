@@ -19,4 +19,6 @@ public interface DefenceSystemObservableInterface {
     public String getSoldierCount(int index);
     
     public String getAmmoCount(int index);
+    
+    public String getFuelAmount(int index);
 }

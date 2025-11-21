@@ -84,4 +84,19 @@ public class DefenceSystemObservable implements DefenceSystemObservableInterface
         }
         return sb.toString();
     }
+
+    @Override
+    public String getFuelAmount(int index) {
+        StringBuilder sb = new StringBuilder();
+        for (DefenceSystemObserver defenceSystemObserver : ObserverList) {
+            String count = defenceSystemObserver.getFuelAmount(index);
+            if (count != null) {
+                if (sb.length() > 0) {
+                    sb.append(", ");
+                }
+                sb.append(count);
+            }
+        }
+        return sb.toString();
+    }
 }

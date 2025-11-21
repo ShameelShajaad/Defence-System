@@ -31,7 +31,7 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
     private void initComponents() {
 
         jLabelAreaCleared = new javax.swing.JLabel();
-        jSlider1 = new javax.swing.JSlider();
+        jSliderFuel = new javax.swing.JSlider();
         jScrollPaneTextArea = new javax.swing.JScrollPane();
         jTextAreaMessageArea = new javax.swing.JTextArea();
         jTextFieldTextMessage = new javax.swing.JTextField();
@@ -50,13 +50,13 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
 
         jLabelAreaCleared.setText("Area Not Cleared");
 
-        jSlider1.setMajorTickSpacing(20);
-        jSlider1.setMinorTickSpacing(10);
-        jSlider1.setOrientation(javax.swing.JSlider.VERTICAL);
-        jSlider1.setPaintLabels(true);
-        jSlider1.setPaintTicks(true);
-        jSlider1.setSnapToTicks(true);
-        jSlider1.setValue(100);
+        jSliderFuel.setMajorTickSpacing(20);
+        jSliderFuel.setMinorTickSpacing(10);
+        jSliderFuel.setOrientation(javax.swing.JSlider.VERTICAL);
+        jSliderFuel.setPaintLabels(true);
+        jSliderFuel.setPaintTicks(true);
+        jSliderFuel.setSnapToTicks(true);
+        jSliderFuel.setValue(100);
 
         jTextAreaMessageArea.setEditable(false);
         jTextAreaMessageArea.setColumns(20);
@@ -141,7 +141,7 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonSendButton)))
                         .addGap(12, 12, 12)))
-                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSliderFuel, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -149,7 +149,7 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                    .addComponent(jSliderFuel, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelAreaCleared)
@@ -208,7 +208,7 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
     private javax.swing.JLabel jLabelAreaCleared;
     private javax.swing.JLabel jLabelSoldierCount;
     private javax.swing.JScrollPane jScrollPaneTextArea;
-    private javax.swing.JSlider jSlider1;
+    private javax.swing.JSlider jSliderFuel;
     private javax.swing.JSpinner jSpinnerAmmoCount;
     private javax.swing.JSpinner jSpinnerSoldierCount;
     private javax.swing.JTextArea jTextAreaMessageArea;
@@ -268,6 +268,14 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
     public String getAmmoCount(int index) {
         if (index == 2) {
             return String.valueOf(jSpinnerAmmoCount.getValue());
+        }
+        return null;
+    }
+
+    @Override
+    public String getFuelAmount(int index) {
+        if (index == 2) {
+            return String.valueOf(jSliderFuel.getValue());
         }
         return null;
     }

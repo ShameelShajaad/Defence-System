@@ -49,7 +49,7 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
         jLabelAmmoCount = new javax.swing.JLabel();
         jCheckBoxPosition = new javax.swing.JCheckBox();
         jButtonTrident2Missile = new javax.swing.JButton();
-        jSliderEnergy = new javax.swing.JSlider();
+        jSliderFuel = new javax.swing.JSlider();
         jLabelOxygen = new javax.swing.JLabel();
         jLabelEnergy = new javax.swing.JLabel();
 
@@ -117,13 +117,13 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
             }
         });
 
-        jSliderEnergy.setMajorTickSpacing(20);
-        jSliderEnergy.setMinorTickSpacing(10);
-        jSliderEnergy.setOrientation(javax.swing.JSlider.VERTICAL);
-        jSliderEnergy.setPaintLabels(true);
-        jSliderEnergy.setPaintTicks(true);
-        jSliderEnergy.setSnapToTicks(true);
-        jSliderEnergy.setValue(100);
+        jSliderFuel.setMajorTickSpacing(20);
+        jSliderFuel.setMinorTickSpacing(10);
+        jSliderFuel.setOrientation(javax.swing.JSlider.VERTICAL);
+        jSliderFuel.setPaintLabels(true);
+        jSliderFuel.setPaintTicks(true);
+        jSliderFuel.setSnapToTicks(true);
+        jSliderFuel.setValue(100);
 
         jLabelOxygen.setText("Oxygen");
 
@@ -175,7 +175,7 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
                         .addComponent(jLabelEnergy, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jSliderEnergy, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jSliderFuel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelOxygen)
@@ -217,7 +217,7 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
                                     .addComponent(jButtonSendButton)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(7, 7, 7)
-                                .addComponent(jSliderEnergy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(jSliderFuel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jSliderOxygen, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -266,7 +266,7 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
     private javax.swing.JLabel jLabelOxygen;
     private javax.swing.JLabel jLabelSoldierCount;
     private javax.swing.JScrollPane jScrollPaneTextArea;
-    private javax.swing.JSlider jSliderEnergy;
+    private javax.swing.JSlider jSliderFuel;
     private javax.swing.JSlider jSliderOxygen;
     private javax.swing.JSpinner jSpinnerAmmoCount;
     private javax.swing.JSpinner jSpinnerSoldierCount;
@@ -327,6 +327,14 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
     public String getAmmoCount(int index) {
         if (index == 3) {
             return String.valueOf(jSpinnerAmmoCount.getValue());
+        }
+        return null;
+    }
+
+    @Override
+    public String getFuelAmount(int index) {
+        if (index == 3) {
+            return String.valueOf(jSliderFuel.getValue());
         }
         return null;
     }
