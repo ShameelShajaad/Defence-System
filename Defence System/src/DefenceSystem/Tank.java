@@ -267,7 +267,7 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
     @Override
     public String getAmmoCount(int index) {
         if (index == 2) {
-            return String.valueOf(jSpinnerSoldierCount.getValue());
+            return String.valueOf(jSpinnerAmmoCount.getValue());
         }
         return null;
     }

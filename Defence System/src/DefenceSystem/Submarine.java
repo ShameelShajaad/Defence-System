@@ -326,7 +326,7 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
     @Override
     public String getAmmoCount(int index) {
         if (index == 3) {
-            return String.valueOf(jSpinnerSoldierCount.getValue());
+            return String.valueOf(jSpinnerAmmoCount.getValue());
         }
         return null;
     }

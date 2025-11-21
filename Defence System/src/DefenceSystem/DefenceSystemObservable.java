@@ -57,11 +57,11 @@ public class DefenceSystemObservable implements DefenceSystemObservableInterface
 
     @Override
     public String getSoldierCount(int index) {
-        StringBuilder sb=new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         for (DefenceSystemObserver defenceSystemObserver : ObserverList) {
             String count = defenceSystemObserver.getSoldierCount(index);
             if (count != null) {
-                if(sb.length()>0){
+                if (sb.length() > 0) {
                     sb.append(", ");
                 }
                 sb.append(count);
@@ -72,12 +72,16 @@ public class DefenceSystemObservable implements DefenceSystemObservableInterface
 
     @Override
     public String getAmmoCount(int index) {
+        StringBuilder sb = new StringBuilder();
         for (DefenceSystemObserver defenceSystemObserver : ObserverList) {
-            String count =defenceSystemObserver.getSoldierCount(index);
-            if(count!=null){
-                return count;
+            String count = defenceSystemObserver.getAmmoCount(index);
+            if (count != null) {
+                if (sb.length() > 0) {
+                    sb.append(", ");
+                }
+                sb.append(count);
             }
         }
-        return null;
+        return sb.toString();
     }
 }
