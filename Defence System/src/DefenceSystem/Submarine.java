@@ -9,7 +9,7 @@ package DefenceSystem;
  * @author Shameel Shajaad
  */
 public class Submarine extends javax.swing.JFrame implements DefenceSystemObserver {
-    
+
     private int position;
 
     /**
@@ -20,7 +20,7 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
         setTitle("Submarine");
         setLocationRelativeTo(null);
         setVisible(true);
-        
+
         jSpinnerSoldierCount.setValue(100);
         jSpinnerAmmoCount.setValue(500);
     }
@@ -281,16 +281,16 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
             doc.insertString(doc.getLength(), "Main Controller: " + Msg + "\n", null);
             jTextAreaMessageArea.setCaretPosition(doc.getLength());
         } catch (javax.swing.text.BadLocationException e) {
-            
+
         }
     }
-    
+
     @Override
     public void update(int position) {
         this.position = position;
         updateButtons();
     }
-    
+
     @Override
     public void areaClearLabel(boolean clear) {
         if (clear) {
@@ -299,7 +299,7 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
             jLabelAreaCleared.setText("Area Not Cleared");
         }
     }
-    
+
     @Override
     public void updateButtons() {
         if (jCheckBoxPosition.isSelected()) {
@@ -317,6 +317,17 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
 
     @Override
     public String getSoldierCount(int index) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (index == 3) {
+            return String.valueOf(jSpinnerSoldierCount.getValue());
+        }
+        return null;
+    }
+
+    @Override
+    public String getAmmoCount(int index) {
+        if (index == 3) {
+            return String.valueOf(jSpinnerSoldierCount.getValue());
+        }
+        return null;
     }
 }
