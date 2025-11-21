@@ -242,6 +242,13 @@ public class Helicopter extends javax.swing.JFrame implements DefenceSystemObser
             return String.valueOf(jSpinnerSoldierCount.getValue());
         }
         return null;
+    }
 
+    @Override
+    public String getAmmoCount(int index) {
+        if(index==1){
+            return String.valueOf(jSpinnerAmmoCount.getValue());
+        }
+        return  null;
     }
 }

@@ -65,4 +65,15 @@ public class DefenceSystemObservable implements DefenceSystemObservableInterface
         }
         return null;
     }
+
+    @Override
+    public String getAmmoCount(int index) {
+        for (DefenceSystemObserver defenceSystemObserver : ObserverList) {
+            String count =defenceSystemObserver.getSoldierCount(index);
+            if(count!=null){
+                return count;
+            }
+        }
+        return null;
+    }
 }
