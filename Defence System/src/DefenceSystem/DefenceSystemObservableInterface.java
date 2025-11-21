@@ -15,10 +15,10 @@ public interface DefenceSystemObservableInterface {
     public void updateButtons();
 
     public void setPosition(int position);
-    
+
     public String getSoldierCount(int index);
-    
+
     public String getAmmoCount(int index);
-    
+
     public String getFuelAmount(int index);
 }

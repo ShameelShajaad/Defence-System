@@ -94,6 +94,12 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
         jTextAreaMessageArea.setRows(5);
         jScrollPaneTextArea.setViewportView(jTextAreaMessageArea);
 
+        jTextFieldTextMessage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldTextMessageActionPerformed(evt);
+            }
+        });
+
         jButtonSendButton.setText("SEND");
         jButtonSendButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,6 +247,7 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
         String message = "Tank: " + jTextFieldTextMessage.getText();
         jTextAreaMessageArea.append(message + "\n");
         MainController.setDefenceMessage(message);
+        jTextFieldTextMessage.setText("");
     }//GEN-LAST:event_jButtonSendButtonActionPerformed
 
     private void jButtonShootActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonShootActionPerformed
@@ -269,6 +276,13 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
             JOptionPane.showMessageDialog(this, "No ammos left!");
         }
     }//GEN-LAST:event_jButtonLaserOperationActionPerformed
+
+    private void jTextFieldTextMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTextMessageActionPerformed
+        String message = "Tank: " + jTextFieldTextMessage.getText();
+        jTextAreaMessageArea.append(message + "\n");
+        MainController.setDefenceMessage(message);
+        jTextFieldTextMessage.setText("");
+    }//GEN-LAST:event_jTextFieldTextMessageActionPerformed
 
     /**
      * @param args the command line arguments

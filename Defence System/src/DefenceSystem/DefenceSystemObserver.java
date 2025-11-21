@@ -13,10 +13,10 @@ public interface DefenceSystemObserver {
     public void areaClearLabel(boolean clear);
 
     public void updateButtons();
-    
+
     public String getSoldierCount(int index);
-    
+
     public String getAmmoCount(int index);
-    
+
     public String getFuelAmount(int index);
 }

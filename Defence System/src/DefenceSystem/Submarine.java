@@ -301,13 +301,17 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
     }//GEN-LAST:event_jButtonTrident2MissileActionPerformed
 
     private void jTextFieldTextMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTextMessageActionPerformed
-        // TODO add your handling code here:
+        String message = "Submarine: " + jTextFieldTextMessage.getText();
+        jTextAreaMessageArea.append(message + "\n");
+        MainController.setDefenceMessage(message);
+        jTextFieldTextMessage.setText("");
     }//GEN-LAST:event_jTextFieldTextMessageActionPerformed
 
     private void jButtonSendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendButtonActionPerformed
         String message = "Submarine: " + jTextFieldTextMessage.getText();
         jTextAreaMessageArea.append(message + "\n");
         MainController.setDefenceMessage(message);
+        jTextFieldTextMessage.setText("");
     }//GEN-LAST:event_jButtonSendButtonActionPerformed
 
     private void jSliderOxygenComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jSliderOxygenComponentShown

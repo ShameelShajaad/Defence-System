@@ -90,6 +90,12 @@ public class MainController extends javax.swing.JFrame {
             }
         });
 
+        jTextFieldTextMessage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldTextMessageActionPerformed(evt);
+            }
+        });
+
         jButtonSend.setText("SEND");
         jButtonSend.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,6 +200,8 @@ public class MainController extends javax.swing.JFrame {
 
         if (!message.isEmpty()) {
             defenceSystemObservableInterface.getMsgMain(message);
+
+            jTextFieldTextMessage.setText("");
         }
     }//GEN-LAST:event_jButtonSendActionPerformed
 
@@ -207,29 +215,39 @@ public class MainController extends javax.swing.JFrame {
     }//GEN-LAST:event_jSliderPositionStateChanged
 
     private void jComboBoxSelectDefenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSelectDefenceActionPerformed
-        int index=jComboBoxSelectDefence.getSelectedIndex();
-        
-        if(index==0){
+        int index = jComboBoxSelectDefence.getSelectedIndex();
+
+        if (index == 0) {
             jLabelValueSoldierCount.setText(" ");
             jLabelValueFuelAmount.setText(" ");
             jLabelValueAmmoCount.setText(" ");
         }
-        if(index==1){
+        if (index == 1) {
             jLabelValueSoldierCount.setText(defenceSystemObservableInterface.getSoldierCount(index));
             jLabelValueAmmoCount.setText(defenceSystemObservableInterface.getAmmoCount(index));
             jLabelValueFuelAmount.setText(defenceSystemObservableInterface.getFuelAmount(index));
         }
-        if(index==2){
+        if (index == 2) {
             jLabelValueSoldierCount.setText(defenceSystemObservableInterface.getSoldierCount(index));
             jLabelValueAmmoCount.setText(defenceSystemObservableInterface.getAmmoCount(index));
             jLabelValueFuelAmount.setText(defenceSystemObservableInterface.getFuelAmount(index));
         }
-        if(index==3){
+        if (index == 3) {
             jLabelValueSoldierCount.setText(defenceSystemObservableInterface.getSoldierCount(index));
             jLabelValueAmmoCount.setText(defenceSystemObservableInterface.getAmmoCount(index));
             jLabelValueFuelAmount.setText(defenceSystemObservableInterface.getFuelAmount(index));
         }
     }//GEN-LAST:event_jComboBoxSelectDefenceActionPerformed
+
+    private void jTextFieldTextMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTextMessageActionPerformed
+        String message = jTextFieldTextMessage.getText();
+
+        if (!message.isEmpty()) {
+            defenceSystemObservableInterface.getMsgMain(message);
+
+            jTextFieldTextMessage.setText("");
+        }
+    }//GEN-LAST:event_jTextFieldTextMessageActionPerformed
 
     public void updateInbox() {
         jTextAreaTextAreaMain.setText(" ");
