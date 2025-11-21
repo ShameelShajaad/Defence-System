@@ -118,16 +118,16 @@ git clone https://github.com/ShameelShajaad/Defence-System.git
 ### 📸 Screenshots / Demo
 
 - **Main Controller Window**  
-  ![Main Controller](Defence System/screenshots/MainController.png)
+  ![Main Controller](Defence%20System/screenshots/MainController.png)
 
 - **Helicopter Unit Window**  
-  ![Helicopter](Defence-System/screenshots/Helicopter.png)
+  ![Helicopter](Defence%20System/screenshots/Helicopter.png)
 
 - **Tank Unit Window**  
-  ![Tank](Defence-System/screenshots/Tank.png)
+  ![Tank](Defence%20System/screenshots/Tank.png)
 
 - **Submarine Unit Window**  
-  ![Submarine](Defence-System/screenshots/Submarine.png)
+  ![Submarine](Defence%20System/screenshots/Submarine.png)
 
 ---
 
