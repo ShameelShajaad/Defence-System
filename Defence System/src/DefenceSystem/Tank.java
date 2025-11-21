@@ -14,8 +14,11 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
     public Tank() {
         initComponents();
         setTitle("Tank");
-        setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
         setVisible(true);
+        
+        jSpinnerSoldierCount.setValue(100);
+        jSpinnerAmmoCount.setValue(500);
     }
 
     /**
@@ -186,6 +189,7 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
 
     private void jButtonSendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendButtonActionPerformed
         String message = "Tank: " + jTextFieldTextMessage.getText();
+        jTextAreaMessageArea.append(message+"\n");
         MainController.setDefenceMessage(message);
     }//GEN-LAST:event_jButtonSendButtonActionPerformed
 

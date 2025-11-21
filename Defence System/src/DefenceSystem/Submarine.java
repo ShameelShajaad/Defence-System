@@ -9,7 +9,7 @@ package DefenceSystem;
  * @author Shameel Shajaad
  */
 public class Submarine extends javax.swing.JFrame implements DefenceSystemObserver {
-
+    
     private int position;
 
     /**
@@ -20,6 +20,9 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
         setTitle("Submarine");
         setLocationRelativeTo(null);
         setVisible(true);
+        
+        jSpinnerSoldierCount.setValue(100);
+        jSpinnerAmmoCount.setValue(500);
     }
 
     /**
@@ -61,6 +64,11 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
         jSliderOxygen.setPaintTicks(true);
         jSliderOxygen.setSnapToTicks(true);
         jSliderOxygen.setValue(100);
+        jSliderOxygen.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                jSliderOxygenComponentShown(evt);
+            }
+        });
 
         jTextAreaMessageArea.setEditable(false);
         jTextAreaMessageArea.setColumns(20);
@@ -163,9 +171,12 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
                             .addComponent(jTextFieldTextMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSliderEnergy, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelEnergy, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelEnergy, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jSliderEnergy, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelOxygen)
                     .addComponent(jSliderOxygen, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -184,9 +195,9 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
                                 .addComponent(jLabelSoldierCount)
                                 .addComponent(jLabelEnergy)
                                 .addComponent(jLabelOxygen)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelAmmoCount)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -204,7 +215,9 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jTextFieldTextMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButtonSendButton)))
-                            .addComponent(jSliderEnergy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(7, 7, 7)
+                                .addComponent(jSliderEnergy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jSliderOxygen, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -228,8 +241,13 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
 
     private void jButtonSendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendButtonActionPerformed
         String message = "Submarine: " + jTextFieldTextMessage.getText();
+        jTextAreaMessageArea.append(message + "\n");
         MainController.setDefenceMessage(message);
     }//GEN-LAST:event_jButtonSendButtonActionPerformed
+
+    private void jSliderOxygenComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jSliderOxygenComponentShown
+
+    }//GEN-LAST:event_jSliderOxygenComponentShown
 
     /**
      * @param args the command line arguments
@@ -263,16 +281,16 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
             doc.insertString(doc.getLength(), "Main Controller: " + Msg + "\n", null);
             jTextAreaMessageArea.setCaretPosition(doc.getLength());
         } catch (javax.swing.text.BadLocationException e) {
-
+            
         }
     }
-
+    
     @Override
     public void update(int position) {
         this.position = position;
         updateButtons();
     }
-
+    
     @Override
     public void areaClearLabel(boolean clear) {
         if (clear) {
@@ -281,7 +299,7 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
             jLabelAreaCleared.setText("Area Not Cleared");
         }
     }
-
+    
     @Override
     public void updateButtons() {
         if (jCheckBoxPosition.isSelected()) {

@@ -51,7 +51,7 @@ public class DefenceSystemObservable implements DefenceSystemObservableInterface
     public void notifyDefence() {
         for (DefenceSystemObserver defenceSystemObserver : ObserverList) {
             defenceSystemObserver.update(position);
-            updateButtons();
+            defenceSystemObserver.updateButtons();
         }
     }
 

@@ -16,6 +16,9 @@ public class Helicopter extends javax.swing.JFrame implements DefenceSystemObser
         setTitle("Helicopter");
         this.setLocationRelativeTo(null);
         setVisible(true);
+        
+        jSpinnerSoldierCount.setValue(100);
+        jSpinnerAmmoCount.setValue(500);
     }
 
     /**
@@ -169,6 +172,7 @@ public class Helicopter extends javax.swing.JFrame implements DefenceSystemObser
 
     private void jButtonSendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendButtonActionPerformed
         String message = "Helicopter: " + jTextFieldTextMessage.getText();
+        jTextAreaMessageArea.append(message+"\n");
         MainController.setDefenceMessage(message);
     }//GEN-LAST:event_jButtonSendButtonActionPerformed
 

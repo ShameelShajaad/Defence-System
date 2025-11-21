@@ -43,10 +43,18 @@ public class MainController extends javax.swing.JFrame {
         jSliderPosition = new javax.swing.JSlider();
         jTextFieldTextMessage = new javax.swing.JTextField();
         jButtonSend = new javax.swing.JButton();
+        jLabelValueSoldierCount = new javax.swing.JLabel();
+        jLabelValueAmmoCount = new javax.swing.JLabel();
+        jLabelValueFuelAmount = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jComboBoxSelectDefence.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Defence", "Helicopter", "Tank", "Submarine" }));
+        jComboBoxSelectDefence.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxSelectDefenceActionPerformed(evt);
+            }
+        });
 
         jButtonCollectInformations.setText("Collect Informations");
 
@@ -89,6 +97,15 @@ public class MainController extends javax.swing.JFrame {
             }
         });
 
+        jLabelValueSoldierCount.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelValueSoldierCount.setText(" ");
+
+        jLabelValueAmmoCount.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelValueAmmoCount.setText(" ");
+
+        jLabelValueFuelAmount.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelValueFuelAmount.setText(" ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -105,11 +122,24 @@ public class MainController extends javax.swing.JFrame {
                         .addGap(38, 38, 38))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelSoldierCount, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelFuelAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelAmmoCount, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSliderPosition, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE))
+                            .addComponent(jSliderPosition, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(jLabelAmmoCount, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabelValueAmmoCount, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabelSoldierCount, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabelFuelAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(26, 26, 26)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabelValueFuelAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabelValueSoldierCount, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPaneTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18))))
@@ -134,11 +164,17 @@ public class MainController extends javax.swing.JFrame {
                         .addComponent(jScrollPaneTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addComponent(jLabelSoldierCount)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelSoldierCount)
+                            .addComponent(jLabelValueSoldierCount))
                         .addGap(18, 18, 18)
-                        .addComponent(jLabelFuelAmount)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelFuelAmount)
+                            .addComponent(jLabelValueFuelAmount))
                         .addGap(18, 18, 18)
-                        .addComponent(jLabelAmmoCount)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelAmmoCount)
+                            .addComponent(jLabelValueAmmoCount))
                         .addGap(18, 18, 18)
                         .addComponent(jLabelPosition)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -170,6 +206,14 @@ public class MainController extends javax.swing.JFrame {
         defenceSystemObservableInterface.setPosition(position);
     }//GEN-LAST:event_jSliderPositionStateChanged
 
+    private void jComboBoxSelectDefenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSelectDefenceActionPerformed
+        int index=jComboBoxSelectDefence.getSelectedIndex();
+        
+        if(index==1){
+            
+        }
+    }//GEN-LAST:event_jComboBoxSelectDefenceActionPerformed
+
     public void updateInbox() {
         jTextAreaTextAreaMain.setText(" ");
     }
@@ -194,6 +238,9 @@ public class MainController extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelFuelAmount;
     private javax.swing.JLabel jLabelPosition;
     private javax.swing.JLabel jLabelSoldierCount;
+    private javax.swing.JLabel jLabelValueAmmoCount;
+    private javax.swing.JLabel jLabelValueFuelAmount;
+    private javax.swing.JLabel jLabelValueSoldierCount;
     private javax.swing.JScrollPane jScrollPaneTextArea;
     private javax.swing.JSlider jSliderPosition;
     public static javax.swing.JTextArea jTextAreaTextAreaMain;
