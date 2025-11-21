@@ -60,7 +60,7 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
                         jSliderOxygen.setValue(100);
                     }
                 }
-                if (oxygen == 10) {
+                if (fuel == 10) {
                     int res = JOptionPane.showConfirmDialog(Submarine.this, "Fuel Level is below 10, You have to refill right now!", "Warning", JOptionPane.YES_OPTION);
                     if (res == JOptionPane.YES_OPTION) {
                         jSliderFuel.setValue(100);

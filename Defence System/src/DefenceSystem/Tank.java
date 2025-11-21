@@ -1,5 +1,10 @@
 package DefenceSystem;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
+import javax.swing.Timer;
+
 /**
  *
  * @author Shameel Shajaad
@@ -19,6 +24,32 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
 
         jSpinnerSoldierCount.setValue(100);
         jSpinnerAmmoCount.setValue(500);
+
+        sliderTimer = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                int fuel = jSliderFuel.getValue();
+
+                if (fuel > 0) {
+                    jSliderFuel.setValue(fuel - 1);
+                }
+                if (fuel == 30) {
+                    int res = JOptionPane.showConfirmDialog(Tank.this, "Fuel Level is below 30, Do you want to refill?", "Warning", JOptionPane.YES_NO_OPTION);
+                    if (res == JOptionPane.YES_OPTION) {
+                        jSliderFuel.setValue(100);
+                    }
+                }
+                if (fuel == 10) {
+                    int res = JOptionPane.showConfirmDialog(Tank.this, "Fuel Level is below 10, You have to refill right now!", "Warning", JOptionPane.YES_OPTION);
+                    if (res == JOptionPane.YES_OPTION) {
+                        jSliderFuel.setValue(100);
+                    }
+                }
+            }
+        });
+
+        sliderTimer.start();
     }
 
     /**
@@ -214,6 +245,8 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
     private javax.swing.JTextArea jTextAreaMessageArea;
     private javax.swing.JTextField jTextFieldTextMessage;
     // End of variables declaration//GEN-END:variables
+
+    private Timer sliderTimer;
 
     @Override
     public void getMsgMain(String Msg) {
