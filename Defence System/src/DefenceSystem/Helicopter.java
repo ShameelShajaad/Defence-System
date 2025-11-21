@@ -24,7 +24,7 @@ public class Helicopter extends javax.swing.JFrame implements DefenceSystemObser
 
         jSpinnerSoldierCount.setValue(100);
         jSpinnerAmmoCount.setValue(500);
-        
+
         sliderTimer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -222,29 +222,28 @@ public class Helicopter extends javax.swing.JFrame implements DefenceSystemObser
     }//GEN-LAST:event_jButtonSendButtonActionPerformed
 
     private void jButtonShootActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonShootActionPerformed
-        int ammoCount=(int) jSpinnerAmmoCount.getValue();
-        if(ammoCount>=5){
-            jSpinnerAmmoCount.setValue(ammoCount-5);
-        }
-        else{
+        int ammoCount = (int) jSpinnerAmmoCount.getValue();
+        if (ammoCount >= 5) {
+            jSpinnerAmmoCount.setValue(ammoCount - 5);
+        } else {
             JOptionPane.showMessageDialog(this, "No ammos left!");
         }
     }//GEN-LAST:event_jButtonShootActionPerformed
 
     private void jButtonSendASoldierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendASoldierActionPerformed
-        int soldierCount=(int) jSpinnerSoldierCount.getValue();
-        if(soldierCount!=0){
-            jSpinnerSoldierCount.setValue(soldierCount-1);
-        }else{
+        int soldierCount = (int) jSpinnerSoldierCount.getValue();
+        if (soldierCount != 0) {
+            jSpinnerSoldierCount.setValue(soldierCount - 1);
+        } else {
             JOptionPane.showMessageDialog(this, "No soldiers left!");
         }
     }//GEN-LAST:event_jButtonSendASoldierActionPerformed
 
     private void jButtonLaserOperationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLaserOperationActionPerformed
-        int ammoCount=(int)jSpinnerAmmoCount.getValue();
-        if(ammoCount>=10){
-            jSpinnerAmmoCount.setValue(ammoCount-10);
-        }else{
+        int ammoCount = (int) jSpinnerAmmoCount.getValue();
+        if (ammoCount >= 10) {
+            jSpinnerAmmoCount.setValue(ammoCount - 10);
+        } else {
             JOptionPane.showMessageDialog(this, "No ammos left!");
         }
     }//GEN-LAST:event_jButtonLaserOperationActionPerformed
@@ -271,7 +270,7 @@ public class Helicopter extends javax.swing.JFrame implements DefenceSystemObser
     // End of variables declaration//GEN-END:variables
 
     private Timer sliderTimer;
-    
+
     @Override
     public void getMsgMain(String Msg) {
         try {

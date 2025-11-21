@@ -103,12 +103,27 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
 
         jButtonSendASoldier.setText("Send a Soldier");
         jButtonSendASoldier.setEnabled(false);
+        jButtonSendASoldier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSendASoldierActionPerformed(evt);
+            }
+        });
 
         jButtonShoot.setText("Shoot");
         jButtonShoot.setEnabled(false);
+        jButtonShoot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonShootActionPerformed(evt);
+            }
+        });
 
         jButtonLaserOperation.setText("Laser Operation");
         jButtonLaserOperation.setEnabled(false);
+        jButtonLaserOperation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLaserOperationActionPerformed(evt);
+            }
+        });
 
         jLabelSoldierCount.setText("Soldier Count");
 
@@ -214,7 +229,12 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
     }//GEN-LAST:event_jCheckBoxPositionActionPerformed
 
     private void jButtonRotateShootingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRotateShootingActionPerformed
-        // TODO add your handling code here:
+        int ammoCount = (int) jSpinnerAmmoCount.getValue();
+        if (ammoCount >= 50) {
+            jSpinnerAmmoCount.setValue(ammoCount - 50);
+        } else {
+            JOptionPane.showMessageDialog(this, "No ammos left!");
+        }
     }//GEN-LAST:event_jButtonRotateShootingActionPerformed
 
     private void jButtonSendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendButtonActionPerformed
@@ -222,6 +242,33 @@ public class Tank extends javax.swing.JFrame implements DefenceSystemObserver {
         jTextAreaMessageArea.append(message + "\n");
         MainController.setDefenceMessage(message);
     }//GEN-LAST:event_jButtonSendButtonActionPerformed
+
+    private void jButtonShootActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonShootActionPerformed
+        int ammoCount = (int) jSpinnerAmmoCount.getValue();
+        if (ammoCount >= 5) {
+            jSpinnerAmmoCount.setValue(ammoCount - 5);
+        } else {
+            JOptionPane.showMessageDialog(this, "No ammos left!");
+        }
+    }//GEN-LAST:event_jButtonShootActionPerformed
+
+    private void jButtonSendASoldierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendASoldierActionPerformed
+        int soldierCount = (int) jSpinnerSoldierCount.getValue();
+        if (soldierCount != 0) {
+            jSpinnerSoldierCount.setValue(soldierCount - 1);
+        } else {
+            JOptionPane.showMessageDialog(this, "No soldiers left!");
+        }
+    }//GEN-LAST:event_jButtonSendASoldierActionPerformed
+
+    private void jButtonLaserOperationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLaserOperationActionPerformed
+        int ammoCount = (int) jSpinnerAmmoCount.getValue();
+        if (ammoCount >= 10) {
+            jSpinnerAmmoCount.setValue(ammoCount - 10);
+        } else {
+            JOptionPane.showMessageDialog(this, "No ammos left!");
+        }
+    }//GEN-LAST:event_jButtonLaserOperationActionPerformed
 
     /**
      * @param args the command line arguments
