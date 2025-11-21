@@ -6,6 +6,7 @@ package DefenceSystem;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 /**
@@ -27,23 +28,47 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
 
         jSpinnerSoldierCount.setValue(100);
         jSpinnerAmmoCount.setValue(500);
-        
-        sliderTimer=new Timer(1000, new ActionListener() {
+
+        sliderTimer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
-                int oxygen=jSliderOxygen.getValue();
-                int fuel=jSliderFuel.getValue();
 
-                if(oxygen>0){
-                    jSliderOxygen.setValue(oxygen-1);
+                int oxygen = jSliderOxygen.getValue();
+                int fuel = jSliderFuel.getValue();
+
+                if (oxygen > 0) {
+                    jSliderOxygen.setValue(oxygen - 1);
                 }
-                if(fuel>0){
-                    jSliderFuel.setValue(fuel-1);
+                if (fuel > 0) {
+                    jSliderFuel.setValue(fuel - 1);
+                }
+                if (oxygen == 30) {
+                    int res = JOptionPane.showConfirmDialog(Submarine.this, "Oxygen Level is below 30, Do you want to refill?", "Warning", JOptionPane.YES_NO_OPTION);
+                    if (res == JOptionPane.YES_OPTION) {
+                        jSliderOxygen.setValue(100);
+                    }
+                }
+                if (fuel == 30) {
+                    int res = JOptionPane.showConfirmDialog(Submarine.this, "Fuel Level is below 30, Do you want to refill?", "Warning", JOptionPane.YES_NO_OPTION);
+                    if (res == JOptionPane.YES_OPTION) {
+                        jSliderFuel.setValue(100);
+                    }
+                }
+                if (oxygen == 10) {
+                    int res = JOptionPane.showConfirmDialog(Submarine.this, "Oxygen Level is below 10, You have to refill right now!", "Warning", JOptionPane.YES_OPTION);
+                    if (res == JOptionPane.YES_OPTION) {
+                        jSliderOxygen.setValue(100);
+                    }
+                }
+                if (oxygen == 10) {
+                    int res = JOptionPane.showConfirmDialog(Submarine.this, "Fuel Level is below 10, You have to refill right now!", "Warning", JOptionPane.YES_OPTION);
+                    if (res == JOptionPane.YES_OPTION) {
+                        jSliderFuel.setValue(100);
+                    }
                 }
             }
         });
-        
+
         sliderTimer.start();
     }
 
@@ -295,7 +320,7 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
     // End of variables declaration//GEN-END:variables
 
     private Timer sliderTimer;
-    
+
     @Override
     public void getMsgMain(String Msg) {
         try {
