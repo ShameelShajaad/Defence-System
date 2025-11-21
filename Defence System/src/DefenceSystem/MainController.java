@@ -217,17 +217,17 @@ public class MainController extends javax.swing.JFrame {
         if(index==1){
             jLabelValueSoldierCount.setText(defenceSystemObservableInterface.getSoldierCount(index));
             jLabelValueAmmoCount.setText(defenceSystemObservableInterface.getAmmoCount(index));
-            jLabelFuelAmount.setText(defenceSystemObservableInterface.getFuelAmount(index));
+            jLabelValueFuelAmount.setText(defenceSystemObservableInterface.getFuelAmount(index));
         }
         if(index==2){
             jLabelValueSoldierCount.setText(defenceSystemObservableInterface.getSoldierCount(index));
             jLabelValueAmmoCount.setText(defenceSystemObservableInterface.getAmmoCount(index));
-            jLabelFuelAmount.setText(defenceSystemObservableInterface.getFuelAmount(index));
+            jLabelValueFuelAmount.setText(defenceSystemObservableInterface.getFuelAmount(index));
         }
         if(index==3){
             jLabelValueSoldierCount.setText(defenceSystemObservableInterface.getSoldierCount(index));
             jLabelValueAmmoCount.setText(defenceSystemObservableInterface.getAmmoCount(index));
-            jLabelFuelAmount.setText(defenceSystemObservableInterface.getFuelAmount(index));
+            jLabelValueFuelAmount.setText(defenceSystemObservableInterface.getFuelAmount(index));
         }
     }//GEN-LAST:event_jComboBoxSelectDefenceActionPerformed
 

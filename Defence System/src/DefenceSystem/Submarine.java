@@ -4,6 +4,10 @@
  */
 package DefenceSystem;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
+
 /**
  *
  * @author Shameel Shajaad
@@ -23,6 +27,24 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
 
         jSpinnerSoldierCount.setValue(100);
         jSpinnerAmmoCount.setValue(500);
+        
+        sliderTimer=new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+                int oxygen=jSliderOxygen.getValue();
+                int fuel=jSliderFuel.getValue();
+
+                if(oxygen>0){
+                    jSliderOxygen.setValue(oxygen-1);
+                }
+                if(fuel>0){
+                    jSliderFuel.setValue(fuel-1);
+                }
+            }
+        });
+        
+        sliderTimer.start();
     }
 
     /**
@@ -62,7 +84,6 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
         jSliderOxygen.setOrientation(javax.swing.JSlider.VERTICAL);
         jSliderOxygen.setPaintLabels(true);
         jSliderOxygen.setPaintTicks(true);
-        jSliderOxygen.setSnapToTicks(true);
         jSliderOxygen.setValue(100);
         jSliderOxygen.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -122,7 +143,6 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
         jSliderFuel.setOrientation(javax.swing.JSlider.VERTICAL);
         jSliderFuel.setPaintLabels(true);
         jSliderFuel.setPaintTicks(true);
-        jSliderFuel.setSnapToTicks(true);
         jSliderFuel.setValue(100);
 
         jLabelOxygen.setText("Oxygen");
@@ -274,6 +294,8 @@ public class Submarine extends javax.swing.JFrame implements DefenceSystemObserv
     private javax.swing.JTextField jTextFieldTextMessage;
     // End of variables declaration//GEN-END:variables
 
+    private Timer sliderTimer;
+    
     @Override
     public void getMsgMain(String Msg) {
         try {
